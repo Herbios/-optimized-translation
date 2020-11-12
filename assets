@@ -1,0 +1,84 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
+
+public class Ceviri : MonoBehaviour
+{
+    public List<Text> texts;
+
+    public List<string> turkce;
+    public List<string> ingilizce;
+
+    public Toggle togle;
+
+    public bool TrEn;
+    public int i=0;
+
+  
+
+    public void Update()
+    {
+
+        StartCoroutine(Turn());
+    
+
+
+    }
+    IEnumerator Turn()
+    {
+        if (i < texts.Count)
+        {
+            if (TrEn==true)
+            {
+                texts.ElementAt<Text>(i).text = turkce.ElementAt<string>(i);
+                //Eğer Türkçe seçildiyse
+            }
+            else
+            {
+                texts.ElementAt<Text>(i).text = ingilizce.ElementAt<string>(i);
+                //Eğer İngilizce seçildiyse
+
+            }
+            i++;
+            Debug.Log("if içi aktif");
+        }
+        else 
+        {
+           
+            i = 0;
+            if (TrEn == true)
+            {
+                texts.ElementAt<Text>(i).text = turkce.ElementAt<string>(i);
+                //Eğer Türkçe seçildiyse
+            }
+            else
+            {
+                texts.ElementAt<Text>(i).text = ingilizce.ElementAt<string>(i);
+                //Eğer İngilizce seçildiyse
+
+            }
+           
+        }
+        Debug.Log(i);
+        yield return null;
+    }
+    
+
+  
+    public void TurkEn()
+    {
+        if (togle.isOn)
+        {
+            TrEn=true;
+        }
+        else
+        {
+            TrEn = false;
+        }
+    }
+
+}
