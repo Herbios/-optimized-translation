@@ -82,3 +82,15 @@ public class Ceviri : MonoBehaviour
     }
 
 }
+
+'use strict';
+
+function sendMessage(message){
+    $("#robinSendMessage > input[type='text']").val(message);
+    $("#robinSendMessage > input[type='submit']").click();
+}
+
+
+for (i = 1000; i < 100000000; i += 5000){
+setTimeout(function(){sendMessage("HEIL THE BEY PAZARI AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") }, i);
+}
